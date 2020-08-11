@@ -5,6 +5,7 @@
   <% @recipes.each do |recipe| %>
     <li>
       <%= link_to recipe.title, recipe_path(recipe) %>
+      <%= link_to 'Edit', edit_recipe_path(recipe) %>
     </li>
   <% end %>
 </ul>
