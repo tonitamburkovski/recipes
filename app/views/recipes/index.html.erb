@@ -6,28 +6,6 @@
       </div>
     </div>
 
-    <% @recipes.each do |recipe| %>
-      <div class="column is-6 is-offset-3">
-        <div class="card">
-          <header class="card-header">
-            <p class="card-header-title">
-              <%= recipe.title %>
-            </p>
-          </header>
-          <div class="card-content">
-            <div class="content">
-              <p><%= recipe.description %></p>
-            </div>
-          </div>
-          <footer class="card-footer">
-            <%= link_to "Show", recipe_path(recipe), class: "card-footer-item" %>
-            <%= link_to 'Edit', edit_recipe_path(recipe), class: "card-footer-item" %>
-            <%= link_to 'Delete', recipe_path(recipe), method: :delete,
-              data: { confirm: "Are you sure you want to delete #{recipe.title} recipe?" },
-              class: "card-footer-item" %>
-          </footer>
-        </div>
-      </div>
-    <% end %>
+    <%= render @recipes %>
   </div>
 </div>

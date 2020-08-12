@@ -6,21 +6,4 @@
       </div>
     </div>
 
-    <div class="column is-6 is-offset-3">
-      <div class="card">
-        <div class="card-content">
-          <div class="content">
-            <p> <%= @recipe.description %> </p>
-          </div>
-        </div>
-        <footer class="card-footer">
-          <%= link_to "Back", root_path, class: "card-footer-item" %>
-          <%= link_to 'Edit', edit_recipe_path(@recipe), class: "card-footer-item" %>
-          <%= link_to 'Delete', recipe_path(@recipe), method: :delete,
-            data: { confirm: "Are you sure you want to delete #{@recipe.title} recipe?" },
-            class: "card-footer-item" %>
-        </footer>
-      </div>
-    </div>
-  </div>
-</div>
+ <%= render @recipe, show: true %>
