@@ -1,4 +1,26 @@
-<h1> <%= @recipe.title %> </h1>
-<p> <%= @recipe.description %> </p>
-<%= link_to 'Edit', edit_recipe_path(@recipe) %>
-<%= link_to 'Back', root_path %>
+<div class="container">
+  <div class="column is-multiline">
+    <div class="column is-6 is-offset-3">
+      <div class="content is-size-3">
+        <h1> <%= @recipe.title %> </h1>
+      </div>
+    </div>
+
+    <div class="column is-6 is-offset-3">
+      <div class="card">
+        <div class="card-content">
+          <div class="content">
+            <p> <%= @recipe.description %> </p>
+          </div>
+        </div>
+        <footer class="card-footer">
+          <%= link_to "Back", root_path, class: "card-footer-item" %>
+          <%= link_to 'Edit', edit_recipe_path(@recipe), class: "card-footer-item" %>
+          <%= link_to 'Delete', recipe_path(@recipe), method: :delete,
+            data: { confirm: "Are you sure you want to delete #{@recipe.title} recipe?" },
+            class: "card-footer-item" %>
+        </footer>
+      </div>
+    </div>
+  </div>
+</div>
