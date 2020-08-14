@@ -6,4 +6,59 @@
       </div>
     </div>
 
- <%= render @recipe, show: true %>
+  <%= render @recipe, show: true %>
+
+  <div class="column is-6 is-offset-3">
+    <article class="media">
+      <div class="media-content">
+        <div class="content">
+          <p>
+            <strong>INGREDIENTS</strong>
+          </p>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <% @recipe.ingredients.each do |ingredient| %>
+  <div class="column is-6 is-offset-3">
+    <article class="media">
+      <div class="media-content">
+        <div class="content">
+          <p>
+            <%= ingredient.qty %>
+            <%= ingredient.unit %>
+            <%= ingredient.ingredient %>
+          </p>
+        </div>
+      </div>
+    </article>
+  </div>
+  <% end %>
+
+  <div class="column is-6 is-offset-3">
+    <article class="media">
+      <div class="media-content">
+        <div class="content">
+          <p>
+            <strong>INSTRUCTIONS</strong>
+          </p>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <% @recipe.instructions.each do |instruction| %>
+    <div class="column is-6 is-offset-3">
+      <article class="media">
+        <div class="media-content">
+          <div class="content">
+            <p>
+              <%= instruction.step %>
+              <%= instruction.instruction %>
+            </p>
+          </div>
+        </div>
+      </article>
+    </div>
+  <% end %>
