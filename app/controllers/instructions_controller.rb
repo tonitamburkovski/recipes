@@ -13,6 +13,13 @@ class InstructionsController < ApplicationController
     redirect_to recipe
   end
 
+  def destroy
+    instruction = instruction.find(params[:id])
+    instruction.destroy
+
+    redirect_to instruction.article
+  end
+
   private
 
   def instruction_params

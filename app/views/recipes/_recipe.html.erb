@@ -14,9 +14,9 @@
     </div>
     <footer class="card-footer">
       <% if local_assigns[:show] %>
-        <%= link_to "Back", root_path, class: "card-footer-item" %>
+        <%= link_to 'Back', root_path, class: "card-footer-item" %>
       <% else %>
-        <%= link_to "Show", recipe_path(recipe), class: "card-footer-item" %>
+        <%= link_to 'Show', recipe_path(recipe), class: "card-footer-item" %>
       <% end %>
       <%= link_to 'Edit', edit_recipe_path(recipe), class: "card-footer-item" %>
 
