@@ -29,7 +29,7 @@
         <div class="field">
           <%= form.label :title, class: "label" %>
           <div class="control">
-            <%= form.text_field :title, class: "textarea", placeholder: 'Title' %>
+            <%= form.text_field :title, class: "input", placeholder: 'Title' %>
           </div>
         </div>
 
@@ -38,6 +38,36 @@
           <div class="control">
             <%= form.text_area :description, class: "textarea", placeholder: 'Description of the recipe'%>
           </div>
+        </div>
+
+        <div>
+          Ingredients:
+          <ul>
+            <%= form.fields_for :ingredients do |ingredients_form| %>
+              <li>
+                <%= ingredients_form.label :'Quantity' %>
+                <%= ingredients_form.text_field :qty %>
+                <%= ingredients_form.label :unit %>
+                <%= ingredients_form.text_field :unit %>
+                <%= ingredients_form.label :ingredient %>
+                <%= ingredients_form.text_field :ingredient %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+
+        <div>
+          Instructions:
+          <ul>
+            <%= form.fields_for :instructions do |instructions_form| %>
+              <li>
+                <%= instructions_form.label :step %>
+                <%= instructions_form.text_field :step %>
+                <%= instructions_form.label :instruction %>
+                <%= instructions_form.text_area :instruction %>
+              </li>
+            <% end %>
+          </ul>
         </div>
 
         <div class="field is-grouped">
