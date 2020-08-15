@@ -1,14 +1,6 @@
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="container">
     <div class="navbar-brand">
-      <% if logged_in? %>
-        <!-- # to be added -->
-        
-      <% else %>
-        <%= link_to "Log In", login_path, class: "button is-primary has-text-weight-bold" %>
-        <%= link_to "Sign Up", users_signup_path, class: "button is-primary has-text-weight-
-bold" %>
-      <% end %>
 
       <%= link_to "Recipes", root_path, class: "navbar-item is-size-1" %>
 
@@ -24,8 +16,17 @@ bold" %>
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
-            <%= link_to "New Recipe", new_recipe_path, class: "button is-primary has-
-            text-weight-bold" %>
+              <% if logged_in? %>
+                <%= link_to "New Recipe", new_recipe_path, class: "button is-primary
+has-text-weight-bold" %>
+                <%= link_to "Log Out", logout_path, method: :delete, class: "button is-
+primary has-text-weight-bold"%>
+              <% else %>
+                <%= link_to "Log In", login_path, class: "button is-primary has-text-
+weight-bold" %>
+                <%= link_to "Sign Up", users_signup_path, class: "button is-primary has-
+text-weight-bold" %>
+              <% end %>
           </div>
         </div>
       </div>

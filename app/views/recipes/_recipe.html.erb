@@ -18,11 +18,15 @@
       <% else %>
         <%= link_to 'Show', recipe_path(recipe), class: "card-footer-item" %>
       <% end %>
-      <%= link_to 'Edit', edit_recipe_path(recipe), class: "card-footer-item" %>
+      <% if logged_in? && equal_with_current_user?(recipe.user) %>
+        <%= link_to 'Edit', edit_recipe_path(recipe), class: "card-footer-item" %>
+      <% end %>
 
-      <%= link_to 'Delete', recipe_path(recipe), method: :delete,
+      <% if logged_in? && equal_with_current_user?(recipe.user) %>
+        <%= link_to 'Delete', recipe_path(recipe), method: :delete,
         data: { confirm: "Are you sure you want to delete #{recipe.title} recipe?" },
         class: "card-footer-item" %>
+      <% end %>
     </footer>
   </div>
 </div>
