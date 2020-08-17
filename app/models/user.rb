@@ -1,19 +1,24 @@
 class User < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
 
+  MINIMUM_NAME_LENGTH = 4
+  MAXIMUM_NAME_LENGTH = 50
+  MAXIMUM_EMAIL_LENGTH = 50
+  MINIMUM_PASSWORD_LENGTH = 6
+
   has_secure_password
   has_many :recipes, dependent: :destroy
 
   before_save :email_to_downcase
 
-  validates :name, presence: true, length: { minimum: 4, maximum: 50 },
+  validates :name, presence: true, length: { minimum: MINIMUM_NAME_LENGTH , maximum: MAXIMUM_NAME_LENGTH },
                     uniqueness: true
-  validates :email, presence: true, length: { maximum: 50 },
+  validates :email, presence: true, length: { maximum: MAXIMUM_EMAIL_LENGTH },
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: true
-  validates :first_name, presence: true, length: { maximum: 50 }
-  validates :last_name, presence: true, length: { maximum: 50 }
-  validates :password, presence: true, length: { minimum: 6 }
+  validates :first_name, presence: true, length: { maximum: MAXIMUM_NAME_LENGTH }
+  validates :last_name, presence: true, length: { maximum: MAXIMUM_NAME_LENGTH }
+  validates :password, presence: true, length: { minimum: MINIMUM_PASSWORD_LENGTH }
 
   private
 

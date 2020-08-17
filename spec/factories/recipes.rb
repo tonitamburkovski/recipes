@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :article do
+  factory :recipe do
     user
     title { 'Basic Scrambled Eggs' }
     description { 'Spice up this easy egg' }
