@@ -6,5 +6,19 @@
         <div class="column is-6 is-offset-3">
             <%= render @user %>
         </div>
+        <div class="content is-size-3">
+          <table class="table">
+            <% if @user.recipes.any? %>
+              <tbody>
+                <% @user.recipes.each do |recipe| %>
+                  <tr>
+                    <td><%= link_to recipe.title, recipe_path(recipe) %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            <% end %>
+          </table>
+        </div>
+    </div>
     </div>
 </div>
