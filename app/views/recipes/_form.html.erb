@@ -24,7 +24,7 @@
       </div>
     </div>
 
-    <div class="column is-6 is-offset-3">
+    <div class="column is-12">
       <%= form_with model: recipe, local: true do |form| %>
         <div class="field">
           <%= form.label :title, class: "label" %>
@@ -41,7 +41,9 @@
         </div>
 
         <div>
-          Ingredients:
+          <div class="content is-size-5">
+            <h4>Ingredients:</h4>
+          </div>
           <ul>
             <%= form.fields_for :ingredients do |ingredients_form| %>
               <li>
@@ -57,7 +59,9 @@
         </div>
 
         <div>
-          Instructions:
+          <div class="content is-size-5">
+            <h4>Instructions:</h4>
+          </div>
           <ul>
             <%= form.fields_for :instructions do |instructions_form| %>
               <li>

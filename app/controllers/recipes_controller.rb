@@ -10,8 +10,8 @@ class RecipesController < ApplicationController
   def new
     session_notice(:danger, 'You must be logged in!') unless logged_in?
     @recipe = Recipe.new
-    1.times { @recipe.ingredients.build }
-    1.times { @recipe.instructions.build }
+    10.times { @recipe.ingredients.build }
+    10.times { @recipe.instructions.build }
   end
 
   def create
