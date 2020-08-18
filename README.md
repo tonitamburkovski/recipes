@@ -10,11 +10,13 @@ Creating an account and sign in allows you to add, edit and delete already creat
 REQUIREMENTS
 
 In order to install the application you need to have the minimum requirements:
+
 • Ruby version 2.6.5
 • Rails 6.0.3
 • SQLite3
       
 Used:
+
 • Rspec
 • Bulma
       
