@@ -2,13 +2,6 @@
 
 RECIPES WEB APPLICATION
 
-Contents
-    • Summary
-    • Requirements
-    • Installation
-    • Configuration
-    • Maintainers
-
 SUMMARY
 Recipes is a web application , users could create own  recipes and shared with others. Anybody could browse through the application and read recipes with  description. 
 Creating an account and sign in allows you to add, edit and delete already created recipe.
