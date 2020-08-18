@@ -15,7 +15,7 @@ RSpec.describe "Recipes" do
         post '/recipes', post_params
 
         expect(response).to redirect_to(login_path)
-        expect(flash[:danger]).to eq 'You must be logged in!'
+        expect(flash[:danger]).to eq 'Please sign in to continue.'
       end
     end
   end
@@ -151,8 +151,8 @@ RSpec.describe "Recipes" do
       it 'redirect back to root path' do
         get "/recipes/#{recipe.id}/edit"
 
-        expect(flash[:danger]).to eq 'You must be logged in!'
-        expect(response).to redirect_to(root_path)
+        expect(flash[:danger]).to eq 'Please sign in to continue.'
+        expect(response).to redirect_to(login_path)
       end
 
       it 'redirect back to root when updating an recipe' do
@@ -176,7 +176,7 @@ RSpec.describe "Recipes" do
 
         patch "/recipes/#{recipe.id}", patch_params
 
-        expect(flash[:danger]).to eq 'You must be logged in!'
+        expect(flash[:danger]).to eq 'Please sign in to continue.'
         expect(response).to redirect_to(login_path)
       end
     end
@@ -250,7 +250,7 @@ RSpec.describe "Recipes" do
       it 'redirect back to root path' do
         delete "/recipes/#{recipe.id}"
 
-        expect(flash[:danger]).to eq 'You must be logged in!'
+        expect(flash[:danger]).to eq 'Please sign in to continue.'
         expect(response).to redirect_to(login_path)
       end
     end
