@@ -20,6 +20,7 @@ Used:
       
 INSTALLATION
 To Install it locally you need to follow the next steps:
+
     • clone to your computer (git clone https://github.com/tonitamburkovski/recipes)
     • bundle install
     • rails db:setup
