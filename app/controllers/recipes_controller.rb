@@ -15,6 +15,10 @@ class RecipesController < ApplicationController
   end
 
   def create
+    unless logged_in?
+      session_notice(:danger, 'You must be logged in!', login_path) and return
+    end
+
     @recipe = Recipe.new(recipe_params)
     @recipe.user = current_user
 
@@ -31,22 +35,33 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
 
     if logged_in?
-      session_notice(:danger, 'Wrong user') unless equal_with_current_user?(@recipe.user)
+      session_notice(:danger, 'Wrong User') unless equal_with_current_user?(@recipe.user)
     end
   end
 
   def update
+    unless logged_in?
+      session_notice(:danger, 'You must be logged in!', login_path) and return
+    end
+
     @recipe = Recipe.find(params[:id])
 
-    if @recipe.update(recipe_params)
-      redirect_to @recipe
+    if equal_with_current_user?(@recipe.user)
+      if @recipe.update(recipe_params)
+        redirect_to @recipe
+      else
+        render 'edit'
+      end
     else
-      render 'edit'
+      session_notice(:danger, 'Wrong User') and return
     end
   end
 
   def destroy
-    session_notice(:danger, 'You must be logged in!') unless logged_in?
+    unless logged_in?
+      session_notice(:danger, 'You must be logged in!', login_path) and return
+    end
+
     recipe = Recipe.find(params[:id])
 
     if equal_with_current_user?(recipe.user)

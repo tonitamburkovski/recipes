@@ -30,6 +30,8 @@ RSpec.describe "RecipesIntegrations", type: :system do
 
       expect(page).to have_content(title)
       expect(page).to have_content(description)
+      expect(page).to have_content(ingredient)
+      expect(page).to have_content(instruction)
     end
   end
 
